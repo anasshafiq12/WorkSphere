@@ -44,7 +44,9 @@ public class EmployeesController : ControllerBase
             Email = employeeDto.Email,
             ImagePath = employeeDto.ImagePath,
             Role = employeeDto.Role,
-            JoinDate = employeeDto.JoinDate
+            JoinDate = employeeDto.JoinDate,
+            PerMonthSalary = employeeDto.PerMonthSalary,
+            TotalSalaryTaken = employeeDto.TotalSalaryTaken,
         };
         await _employeeService.AddEmployeeAsync(employee);
         return CreatedAtAction(nameof(GetEmployeeById), new { id = employee.Id }, employee);
@@ -60,8 +62,10 @@ public class EmployeesController : ControllerBase
             Email = employeeDto.Email,
             ImagePath = employeeDto.ImagePath,
             Role = employeeDto.Role,
-            JoinDate = employeeDto.JoinDate
-        };
+            JoinDate = employeeDto.JoinDate,
+			PerMonthSalary = employeeDto.PerMonthSalary,
+			TotalSalaryTaken = employeeDto.TotalSalaryTaken,
+		};
         await _employeeService.UpdateEmployeeAsync(id, employee);
         return NoContent();
     }

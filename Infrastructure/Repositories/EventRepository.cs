@@ -39,9 +39,18 @@ namespace Infrastructure.Repositories
 
 		public async Task UpdateAsync(Event evnt)
 		{
+			var trackedEntity = _context.ChangeTracker.Entries<Event>()
+										.FirstOrDefault(e => e.Entity.Id == evnt.Id);
+
+			if (trackedEntity != null)
+			{
+				trackedEntity.State = EntityState.Detached;
+			}
+
 			_context.Events.Update(evnt);
 			await _context.SaveChangesAsync();
 		}
+
 		public async Task DeleteAsync(int id)
 		{
 			var evnt = await _context.Events.FindAsync(id);

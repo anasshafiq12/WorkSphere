@@ -26,6 +26,7 @@ builder.Services.AddScoped<IActivityRepository, ActivityRepository>();
 builder.Services.AddScoped<IHolidayRepository, HolidayRepository>();
 builder.Services.AddScoped<IClientRepository, ClientRepository>();
 builder.Services.AddScoped<ITeamMemberRepository, TeamMemberRepository>();
+builder.Services.AddScoped<IDashboardStatsRepository, DashboardStatsRepository>();
 
 // Services
 builder.Services.AddScoped<IActivityService, ActivityService>();
@@ -36,6 +37,7 @@ builder.Services.AddScoped<IEventService, EventService>();
 builder.Services.AddScoped<IHolidayService, HolidayService>();
 builder.Services.AddScoped<IProjectService, ProjectService>();
 builder.Services.AddScoped<ITeamMemberService, TeamMemberService>();
+builder.Services.AddScoped<IDashboardService,  DashboardService>();
 
 
 builder.Services.AddCors(options =>

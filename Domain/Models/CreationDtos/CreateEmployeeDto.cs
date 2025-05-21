@@ -14,5 +14,8 @@ namespace Domain.Models.CreationDtos
         public string Role { get; set; }
         public string Email { get; set; }
         public string ImagePath { get; set; }
-    }
+
+		public decimal PerMonthSalary { get; set; }
+		public decimal TotalSalaryTaken { get; set; }
+	}
 }

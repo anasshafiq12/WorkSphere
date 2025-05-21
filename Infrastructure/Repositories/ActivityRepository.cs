@@ -40,9 +40,17 @@ namespace Infrastructure.Repositories
 
 		public async Task UpdateAsync(Activit activit)
 		{
-			_context.Activities.Update(activit);
+			var existing = await _context.Activities.FindAsync(activit.Id);
+			if (existing == null) return;
+
+			// Manually update properties
+			existing.Title = activit.Title;
+			existing.Description = activit.Description;
+			existing.Status = activit.Status;
+			existing.TimeStamp = activit.TimeStamp;
 			await _context.SaveChangesAsync();
 		}
+
 
 		public async Task DeleteAsync(int id)
 		{

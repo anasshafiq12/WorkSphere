@@ -41,9 +41,24 @@ namespace Infrastructure.Repositories
 
 		public async Task UpdateAsync(Project project)
 		{
-			_context.Projects.Update(project);
+			var existing = await _context.Projects.FindAsync(project.Id);
+			if (existing == null) return;
+
+			// Manually update properties
+			existing.Title = project.Title;
+			existing.Description = project.Description;
+			existing.ImageUrl = project.ImageUrl;
+			existing.Progress = project.Progress;
+
+			// Update TeamAvatars (replacing the list)
+			existing.TeamAvatars = project.TeamAvatars;
+
+			// Handle Clients if needed
+			existing.Clients = project.Clients;
+
 			await _context.SaveChangesAsync();
 		}
+
 
 		public async Task DeleteAsync(int id)
 		{

@@ -13,7 +13,6 @@ namespace WebApi.Controllers
 	public class EventsController : ControllerBase
 	{
 		private readonly IEventService _eventService;
-
 		public EventsController(IEventService eventService)
 		{
 			_eventService = eventService;
