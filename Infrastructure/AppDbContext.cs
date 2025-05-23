@@ -18,6 +18,7 @@ namespace Infrastructure
         public DbSet<ClientModel> Clients { get; set; }
         public DbSet<Project> Projects { get; set; }
         public DbSet<TeamMember> TeamMembers { get; set; } 
+        public DbSet<ToDo> ToDos { get; set; }
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
         }

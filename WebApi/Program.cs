@@ -27,6 +27,7 @@ builder.Services.AddScoped<IHolidayRepository, HolidayRepository>();
 builder.Services.AddScoped<IClientRepository, ClientRepository>();
 builder.Services.AddScoped<ITeamMemberRepository, TeamMemberRepository>();
 builder.Services.AddScoped<IDashboardStatsRepository, DashboardStatsRepository>();
+builder.Services.AddScoped<IToDoRepository, ToDoRepository>();
 
 // Services
 builder.Services.AddScoped<IActivityService, ActivityService>();
@@ -38,6 +39,7 @@ builder.Services.AddScoped<IHolidayService, HolidayService>();
 builder.Services.AddScoped<IProjectService, ProjectService>();
 builder.Services.AddScoped<ITeamMemberService, TeamMemberService>();
 builder.Services.AddScoped<IDashboardService,  DashboardService>();
+builder.Services.AddScoped<IToDoService, ToDoService>();
 
 
 builder.Services.AddCors(options =>
